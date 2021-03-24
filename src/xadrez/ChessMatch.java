@@ -1,6 +1,9 @@
 package xadrez;
 
+import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import xadrez.pieces.Rei;
+import xadrez.pieces.Torre;
 
 public class ChessMatch {
 	
@@ -8,6 +11,7 @@ public class ChessMatch {
 	
 	public ChessMatch() {
 		tab = new Tabuleiro(8 , 8);
+		initialSetup();
 	}
 	
 	public ChessPiece[][] getPieces(){
@@ -21,5 +25,10 @@ public class ChessMatch {
 		return mat;
 	}
 	
+	private void initialSetup() {
+		tab.placePiece(new Torre(tab, Cor.WHITE), new Posicao(2 , 1));
+		tab.placePiece(new Rei(tab, Cor.BLACK), new Posicao(0, 4));
+		tab.placePiece(new Rei(tab, Cor.BLACK), new Posicao(7, 4));
+	}
 
 }
